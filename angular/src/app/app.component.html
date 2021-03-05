@@ -1,0 +1,6 @@
+      <ul>
+        <li *ngFor="let module of modules">
+          <a [routerLink]="module.url" [queryParams]="{ color: module.theme.palette.primary}"> {{module.name}} </a>
+        </li>
+      </ul>
+      <router-outlet></router-outlet>

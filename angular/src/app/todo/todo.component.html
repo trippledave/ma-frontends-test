@@ -1,0 +1,29 @@
+<mat-card class="p-2">
+  <div class="text-center">
+    <img src="assets/angular.png" alt="Logo" class="mx-auto d-block" />
+
+    <p class="display-1">Angular To Do</p>
+
+    <mat-form-field>
+      <mat-label>Add new task</mat-label>
+      <input matInput #heroName required [formControl]="inputFormControl">
+      <mat-error *ngIf="inputFormControl.hasError('required')">
+        Task is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-icon-button color="primary" [disabled]="!inputFormControl.valid"
+      (click)="add(heroName.value); heroName.value=''">
+      <!-- (click) passes input value to add() and then clears the input -->
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+
+  <div class="row">
+    <div *ngFor="let todo of todos" class="col-sm">
+      <todo-item [item]="todo" (deleted)=onDelete($event)></todo-item>
+    </div>
+  </div>
+
+  <hello-world></hello-world>
+</mat-card>

@@ -1,0 +1,31 @@
+.btn-primary {
+  background-color: var(--primary);
+}
+
+.mat-button.mat-primary,
+.mat-icon-button.mat-primary,
+.mat-stroked-button.mat-primary {
+  color: var(--primary);
+}
+
+.mat-button.mat-accent,
+.mat-icon-button.mat-accent,
+.mat-stroked-button.mat-accent {
+  color: var(--accent);
+}
+
+.mat-form-field.mat-focused .mat-form-field-label {
+  color: var(--primary);
+}
+
+.mat-form-field-type-mat-native-select.mat-focused:not(.mat-form-field-invalid) .mat-form-field-infix::after {
+  color: var(--primary);
+}
+
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color: var(--primary);
+}
+
+.mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: var(--primary);
+}
