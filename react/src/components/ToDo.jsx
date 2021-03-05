@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import Logo from "../assets/logo.png";
 import ToDoItem from "./ToDoItem";
 import Add from '@material-ui/icons/Add';
-import { IconButton, Paper, Grid, TextField, Typography } from '@material-ui/core';
+import { IconButton, Paper, Grid, TextField, Typography, Input } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import HelloWorld from "../HelloWorld";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -13,13 +14,30 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.secondary,
   },
   h1: { color: theme.palette.primary.main },
-  input: { color: theme.palette.primary.main }
 }));
+
+// const useStyles2 = makeStyles((theme) => ({
+//   underline: {
+//     "&:before": {
+//       borderBottom: "2px solid " + theme.palette.secondary.main
+//     },
+//     "&:hover:not($disabled):not($focused):not($error):before": {
+//       borderBottom: "2px solid " + theme.palette.primary.main
+//     },
+//     "&:after": {
+//       borderBottom: "3px solid purple"
+//     }
+//   },
+//   disabled: {},
+//   focused: {},
+//   error: {}
+// }));
 
 
 export default function ToDo(props) {
   const { setTheme, module } = props;
   const classes = useStyles();
+  // const classes2 = useStyles2();
 
   setTheme(module.theme);
 
@@ -82,15 +100,9 @@ export default function ToDo(props) {
         </Grid>
 
         <Grid item xs={12}>
-          <Grid container justify="center">
-            {list.map((toDo) => (
-              <ToDoItem key={toDo.id} item={toDo} deleteItem={deleteItem} />
-            ))}
-          </Grid>
-        </Grid>
-
-        <Grid item xs={12}>
+          {/* <Input */}
           <TextField
+            // classes={classes2}
             error={showError}
             label="I need to..."
             value={toDo}
@@ -103,7 +115,15 @@ export default function ToDo(props) {
           </IconButton>
         </Grid>
 
+        <Grid item xs={12}>
+          <Grid container justify="center">
+            {list.map((toDo) => (
+              <ToDoItem key={toDo.id} item={toDo} deleteItem={deleteItem} />
+            ))}
+          </Grid>
+        </Grid>
       </Grid>
+      <HelloWorld></HelloWorld>
     </Paper>
   );
 };
